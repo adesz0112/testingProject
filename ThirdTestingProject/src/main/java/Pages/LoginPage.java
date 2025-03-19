@@ -9,6 +9,9 @@ public class LoginPage {
     private final String loginEmailSelector = "input[data-qa='login-email']";
     private final String loginPasswordSelector = "input[data-qa='login-password']";
     private final String consentButtonXPath = "//p[contains(@class, 'fc-button-label') and text()='Beleegyezés']";
+    private final String singUpButton = "button[data-qa='signup-button']";
+    private final String userNameField= "input[data-qa='signup-name']";
+    private final String singUpEmailField = "input[data-qa='signup-email']";
 
     public LoginPage(Page page) {
         this.page = page;
@@ -36,5 +39,17 @@ public class LoginPage {
 
     public String getLoginPageURL() {
         return loginPageURL;
+    }
+
+    public void clickSignUpButton() {
+        page.locator(singUpButton).click();
+    }
+
+    public void enterUserName(String userName) {
+        page.locator(userNameField).fill(userName);
+    }
+
+    public void enterSingUpEmail(String singUpEmail) {
+        page.locator(singUpEmailField).fill(singUpEmail);
     }
 }
