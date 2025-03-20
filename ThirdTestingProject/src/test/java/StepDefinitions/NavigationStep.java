@@ -32,9 +32,32 @@ public class NavigationStep {
         homePage.clickProductsIconSelector();
     }
 
+    @When("The user clicks on the cart icon")
+    public void the_user_clicks_on_the_cart_icon() {
+        homePage.clickCartIconSelector();
+    }
+
+    @When("The user clicks on the contact icon")
+    public void the_user_clicks_on_the_contact_icon() {
+        homePage.clickContactIconSelector();
+    }
+
+
     @Then("The user is navigated to the products page")
     public void the_user_is_navigated_to_the_products_page() {
         String actualUrl = page.url();
         assertEquals(homePage.getProductPageUrl(),actualUrl);
+    }
+
+    @Then("The user is navigated to the cart page")
+    public void the_user_is_navigated_to_the_cart_page() {
+       String actualUrl = page.url();
+       assertEquals(homePage.getCartPageUrl(),actualUrl);
+    }
+
+    @Then("The user is navigated to the contact us page")
+    public void the_user_is_navigated_to_the_contact_us_page() {
+        String actualUrl = page.url();
+        assertEquals(homePage.getContactPageUrl(),actualUrl);
     }
 }
