@@ -22,6 +22,8 @@ public class SingUpPage {
     private final String zipField = "input[data-qa='zipcode']";
     private final String mobileNumberField = "input[data-qa='mobile_number']";
     private final String createAccountButton = "button[data-qa='create-account']";
+    private final String emailExistsError = "p[style='color: red;']";
+
 
     public SingUpPage(Page page) {
         this.page = page;
@@ -98,5 +100,8 @@ public class SingUpPage {
         page.locator(createAccountButton).click();
     }
 
+    public boolean isAlreadyExistingEmailErrorVisible() {
+        return page.locator(emailExistsError).isVisible();
+    }
 
 }

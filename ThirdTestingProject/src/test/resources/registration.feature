@@ -11,4 +11,10 @@ Feature: Sample Test
     And click on submit button
     Then user is registered
 
+    Scenario: Register with registered email address
+      Given The user is on the "https://automationexercise.com/login" page
+      And the user enter registered "test2" username and registered "test@ter5rt.com" email
+      When The user clicks on the Sign-up button
+      Then The user gets a warning message that this email is already registered
+
 

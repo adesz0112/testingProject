@@ -13,6 +13,7 @@ public class HomePage {
     private final String productPageUrl = "https://automationexercise.com/products";
     private final String cartPageUrl = "https://automationexercise.com/view_cart";
     private final String contactUSPageUrl = "https://automationexercise.com/contact_us";
+    private final String homePageUrl = "https://automationexercise.com/";
 
     public HomePage(Page page) {
         this.page = page;
@@ -48,5 +49,9 @@ public class HomePage {
 
     public String getContactPageUrl() {
         return contactUSPageUrl;
+    }
+
+    public String getHomePageUrl() {
+        return homePageUrl;
     }
 }
