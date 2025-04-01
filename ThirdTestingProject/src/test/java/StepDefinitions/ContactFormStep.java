@@ -1,7 +1,6 @@
 package StepDefinitions;
 
 import Pages.ContactPage;
-import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -32,12 +31,7 @@ public class ContactFormStep {
 
     @When("The user submit the form")
     public void the_user_submit_the_form() {
-        System.out.println("Is Submit Button Visible? " + page.locator("input[data-qa='submit-button']").isVisible());
-        System.out.println("Is Submit Button Enabled? " + page.locator("input[data-qa='submit-button']").isEnabled());
-        page.evaluate("document.querySelector(\"input[data-qa='submit-button']\").scrollIntoView()");
-        int count = page.locator("input[data-qa='submit-button']").count();
-        System.out.println("Number of submit buttons found: " + count);
-        page.locator("input[data-qa='submit-button']").click(new Locator.ClickOptions().setForce(true));
+       contactPage.clickSubmit();
     }
     @Then("The user gets a message about the successfully sent form")
     public void the_user_gets_a_message_about_the_successfully_sent_form() {
