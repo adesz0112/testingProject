@@ -64,10 +64,6 @@ public class LoginStep {
         playwright.close(); */
     }
 
-    @Then("The user cannot log in to the page")
-    public void the_user_cannot_log_in_to_the_page() {
-        assertTrue(homePage.isErrorMessageDisplayed());
-    }
 
     @Then("The user won't be logged into the site")
     public void the_user_won_t_be_logged_into_the_site() {
