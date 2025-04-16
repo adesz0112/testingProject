@@ -1,7 +1,7 @@
 Feature: Sample Test
   Scenario: Simple scenario
     Given The user is on the "https://automationexercise.com/login" page
-    And the user enter valid "test2" username and valid "test@ter4rt.com" email
+    And the user enter valid "test2" username and valid "test@ter8rt.com" email
     When the user enters password "password" and chooses gender
     And the user selects day "12", month "May", and year "1988"
     And the user enters firstname "John", lastname "Doe"

@@ -89,10 +89,13 @@ public class RegistrationStep {
     public void user_is_registered() {
         String actualUrl = page.url();
         assertEquals("https://automationexercise.com/account_created",actualUrl);
+        homePage.clickOnContinueAfterSignUp();
+        homePage.deleteAccount();
     }
 
     @Then("The user gets a warning message that this email is already registered")
     public void the_user_gets_a_warning_message_that_this_email_is_already_registered() {
         assertTrue(singUpPage.isAlreadyExistingEmailErrorVisible());
+
     }
 }

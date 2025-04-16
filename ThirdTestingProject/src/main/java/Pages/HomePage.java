@@ -63,4 +63,12 @@ public class HomePage {
     public void clickOnCartPage() {
         page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(" Cart")).click();
     }
+
+    public void clickOnContinueAfterSignUp() {
+        page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Continue")).click();
+    }
+
+    public void deleteAccount() {
+        page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(" Delete Account")).click();
+    }
 }
