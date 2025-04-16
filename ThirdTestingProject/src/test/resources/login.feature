@@ -13,7 +13,23 @@ Feature: User can login
 
     Examples:
       | email              | password   |
-      | test@ter5rt.com  | wrongpass1 |
-      | test@ter5rt.com  | teest |
+      | test@ter5rt.com    | wrongpass1 |
+      | test@ter5rt.com    | teest |
       | invalid3@test.com  | test |
       | invalid4@test.com  | test |
+
+
+    Scenario Outline: User cannot login with missing email or password
+      Given The user is on the "https://automationexercise.com/login" page
+      And The user enters not registered email "<email>" or password "<password>"
+      When The user clicks on the login button
+      Then The user won't be logged into the site
+
+      Examples:
+       |email            | password    |
+       |                 | test        |
+       |    ---@.com     | test        |
+       |  t4st.com       | test        |
+       | test@ter5rt.com |             |
+       | test@ter5rt.com | ****        |
+       | test@ter5rt.com |  122222     |

@@ -7,7 +7,6 @@ public class HomePage {
     private final Page page;
 
     private final String errorMessage = "//p[contains(text(), 'Your email or password is incorrect!')]";
-    private final String logoutButtonSelector = "//a[@href='/logout' and contains(@style, 'color:brown')]";
     private final String productsIconSelector = "//a[@href='/products']";
     private final String cartIconSelector = "a[href='/view_cart']";
     private final String contactIconSelector = "a[href='/contact_us']";
@@ -25,7 +24,7 @@ public class HomePage {
     }
 
     public void clickLogoutButton() {
-        page.locator(logoutButtonSelector).click();
+        page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(" Logout")).click();
     }
 
     public void clickProductsIconSelector() {
