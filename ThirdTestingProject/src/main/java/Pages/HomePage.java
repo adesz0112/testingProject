@@ -1,6 +1,7 @@
 package Pages;
 
 import com.microsoft.playwright.Page;
+import com.microsoft.playwright.options.AriaRole;
 
 public class HomePage {
     private final Page page;
@@ -53,5 +54,13 @@ public class HomePage {
 
     public String getHomePageUrl() {
         return homePageUrl;
+    }
+
+    public void navigateToCartPage() {
+        page.navigate(cartPageUrl);
+    }
+
+    public void clickOnCartPage() {
+        page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(" Cart")).click();
     }
 }

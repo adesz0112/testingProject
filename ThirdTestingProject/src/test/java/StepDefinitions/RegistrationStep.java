@@ -88,7 +88,7 @@ public class RegistrationStep {
     @Then("user is registered")
     public void user_is_registered() {
         String actualUrl = page.url();
-        assertEquals(homePage.getHomePageUrl(),actualUrl);
+        assertEquals("https://automationexercise.com/account_created",actualUrl);
     }
 
     @Then("The user gets a warning message that this email is already registered")
