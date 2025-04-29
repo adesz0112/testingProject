@@ -7,6 +7,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import static org.junit.Assert.assertEquals;
+
 public class LogoutStep {
 
     private Page page;
@@ -36,6 +38,7 @@ public class LogoutStep {
     }
     @Then("The user is navigated to the login page")
     public void the_user_is_navigated_to_the_login_page() {
-
+        String actualUrl = page.url();
+        assertEquals(loginPage.getLoginPageURL(), actualUrl);
     }
 }

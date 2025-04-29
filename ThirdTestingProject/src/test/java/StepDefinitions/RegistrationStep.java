@@ -8,6 +8,9 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class RegistrationStep {
 
     private Page page;
@@ -28,6 +31,18 @@ public class RegistrationStep {
         loginPage.enterSingUpEmail(email);
         loginPage.clickSignUpButton();
     }
+
+
+    @Given("the user enter registered {string} username and registered {string} email")
+    public void the_user_enter_registered_username_and_registered_email(String username, String email) {
+        loginPage.enterUserName(username);
+        loginPage.enterSingUpEmail(email);
+    }
+    @When("The user clicks on the Sign-up button")
+    public void the_user_clicks_on_the_sign_up_button() {
+        loginPage.clickSignUpButton();
+    }
+
     @When("the user enters password {string} and chooses gender")
     public void the_user_enters_password_and_chooses_gender(String password) {
         singUpPage.enterPassword(password);
@@ -54,25 +69,33 @@ public class RegistrationStep {
     }
 
     @When("the user selects country  {string}, and enters state {string}, and city {string}")
-    public void the_user_selects_country_and_enters_state_and_city(String string, String string2, String string3) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void the_user_selects_country_and_enters_state_and_city(String country, String state, String city) {
+        singUpPage.enterCountry(country);
+        singUpPage.enterState(state);
+        singUpPage.enterCity(city);
     }
 
     @When("the user enters zipcode {string} and mobile number {string}")
-    public void the_user_enters_zipcode_and_mobile_number(String string, String string2) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void the_user_enters_zipcode_and_mobile_number(String zipcode, String mobileNumber) {
+        singUpPage.enterZipCode(zipcode);
+        singUpPage.enterMobileNumber(mobileNumber);
 
     }
     @When("click on submit button")
     public void click_on_submit_button() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        singUpPage.clickCreateAccountButton();
     }
     @Then("user is registered")
     public void user_is_registered() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        String actualUrl = page.url();
+        assertEquals("https://automationexercise.com/account_created",actualUrl);
+        homePage.clickOnContinueAfterSignUp();
+        homePage.deleteAccount();
+    }
+
+    @Then("The user gets a warning message that this email is already registered")
+    public void the_user_gets_a_warning_message_that_this_email_is_already_registered() {
+        assertTrue(singUpPage.isAlreadyExistingEmailErrorVisible());
+
     }
 }
