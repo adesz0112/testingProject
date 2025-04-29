@@ -14,6 +14,7 @@ public class HomePage {
     private final String cartPageUrl = "https://automationexercise.com/view_cart";
     private final String contactUSPageUrl = "https://automationexercise.com/contact_us";
     private final String homePageUrl = "https://automationexercise.com/";
+    private final String checkoutPageUrl = "https://automationexercise.com/checkout";
 
     public HomePage(Page page) {
         this.page = page;
@@ -69,5 +70,9 @@ public class HomePage {
 
     public void deleteAccount() {
         page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(" Delete Account")).click();
+    }
+
+    public String getCheckOutPageUrl() {
+        return  checkoutPageUrl;
     }
 }

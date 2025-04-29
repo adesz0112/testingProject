@@ -26,9 +26,10 @@ public class AddToCartStep {
 
     @When("The user add a product to the cart")
     public void the_user_add_a_product_to_the_cart() {
+        page.pause();
         productPage.clickFirstProduct();
         productPage.addFirstProductToCart();
-        //page.pause();
+
     }
 
     @When("The user removes the product from the cart")

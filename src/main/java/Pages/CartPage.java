@@ -22,4 +22,9 @@ public class CartPage {
         String text = page.locator("#empty_cart").innerText();
         return text.contains("Cart is empty");
     }
+
+
+    public void clickOnTheProceedToCheckout() {
+        page.getByText("Proceed To Checkout").click();
+    }
 }
