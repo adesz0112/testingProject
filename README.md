@@ -5,6 +5,8 @@ This project is currently in development
 # The System Under Test(SUT)
 <img src="automationsite.png" alt="sut.png" width="700"/>;
 
+# Test results
+<img src="test_results.png" alt="test_results.png" width="700"/>;
 
 ## 📘 Project Overview
 
